@@ -1,10 +1,24 @@
 import PostCard from "../../components/PostCard"
 import { getPosts } from "../../lib/data"
 
+export const metadata = {
+  title: " Blog page ",
+  description: "Blog description",
+};
+
+const getData = async () => {
+  const res = await fetch("http://localhost:3000/api/blog", { next: { revalidate: 3000 } });
+
+  if (!res.ok) {
+    throw new Error("something went wrong");
+  }
+  return res.json();
+};
 
 const BlogPage = async () => {
 
-  const posts = await getPosts();
+  const posts = await getData();
+  // const posts = await getPosts();
 
   return (
     <div className="flex flex-wrap gap-[20px]">
