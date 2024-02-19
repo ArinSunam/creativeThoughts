@@ -2,7 +2,9 @@
 import { useState } from "react";
 import NavLink from "./navLink";
 import Image from "next/image";
-const Links = () => {
+import { handleLogout } from "../../../lib/action";
+import { auth } from "../../../lib/auth";
+const Links = ({ session }) => {
 
 
   // useState
@@ -30,7 +32,7 @@ const Links = () => {
   ];
 
   // Admin
-  const session = true
+
   const isAdmin = true
 
   return (
@@ -44,14 +46,16 @@ const Links = () => {
           session ? (
             <>
               {
-                isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />
+                session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />
 
               }
-              <button className="p-[10px] bg-white text-[#0d0c22] cursor-pointer font-bold">Logout</button>
+
+              <form action={handleLogout}>
+                <button className="p-[10px] bg-white text-[#0d0c22] cursor-pointer font-bold">Logout</button></form>
             </>
 
           ) : (
-            <NavLink item={{ title: "login", path: "/Login" }} />
+            <NavLink item={{ title: "login", path: "/login" }} />
           )
         }
       </div>
