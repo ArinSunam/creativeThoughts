@@ -1,27 +1,23 @@
 import PostCard from "../../components/PostCard"
+import { getPosts } from "../../lib/data"
 
 
-const BlogPage = () => {
+const BlogPage = async () => {
+
+  const posts = await getPosts();
 
   return (
     <div className="flex flex-wrap gap-[20px]">
 
-      <div className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
-        <PostCard />
+      {posts.map((post) => (
 
-      </div>
-      <div className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
-        <PostCard />
+        <div className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
+          <PostCard post={post} />
 
-      </div>
-      <div className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
-        <PostCard />
+        </div>
 
-      </div>
-      <div className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
-        <PostCard />
+      ))}
 
-      </div>
 
 
     </div>
