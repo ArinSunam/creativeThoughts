@@ -36,7 +36,7 @@ const AboutPage = () => {
 
       {/* image */}
       <div className="col-span-1">
-        <Image src="/about.png" alt="" width="300" height="200" className="w-[300px] h-[500px] mmd:hidden" />
+        <Image src="/about.png" alt="" width="300" height="100" className="w-[400px] h-[450px] mmd:hidden" />
       </div>
 
 

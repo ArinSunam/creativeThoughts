@@ -33,7 +33,7 @@ const Links = ({ session }) => {
 
   // Admin
 
-  const isAdmin = true
+
 
   return (
 
@@ -62,10 +62,26 @@ const Links = ({ session }) => {
 
       <Image src="/menu.png" onClick={() => setOpen((prev) => !prev)} alt="" width={30} height={30} className="hidden mmd:block cursor-pointer" />
       {open && (
-        <div className="w-[50vh] absolute top-[100px] right-0  flex flex-col items-center justify-center gap-[10px] " style={{ height: 'calc(100vh - 100px)' }}>
+        <div className="w-[50vh] msm:w-[40vw] absolute top-[100px] right-0    bg-[#0d0c22] space-y-[20px] text-center text-base msm:h-[30px] hidden mmd:block z-50" style={{ height: 'calc(100vh - 100px)' }}>
           {links.map((link) => (
             <NavLink item={link} key={link.title}></NavLink>
           ))}
+          {
+            session ? (
+              <>
+                {
+                  session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />
+
+                }
+
+                <form action={handleLogout}>
+                  <button className="p-[10px] bg-white text-[#0d0c22] cursor-pointer font-bold">Logout</button></form>
+              </>
+
+            ) : (
+              <NavLink item={{ title: "login", path: "/login" }} />
+            )
+          }
         </div>
       )}
     </div>

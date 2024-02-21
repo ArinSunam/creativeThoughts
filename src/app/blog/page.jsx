@@ -18,10 +18,11 @@ const getData = async () => {
 const BlogPage = async () => {
 
   const posts = await getData();
+  console.log('posts', posts)
   // const posts = await getPosts();
 
   return (
-    <div className="flex flex-wrap gap-[20px]">
+    <div className="flex flex-wrap gap-[20px] mt-[40px]">
 
       {posts.map((post) => (
 
