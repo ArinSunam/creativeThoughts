@@ -7,7 +7,7 @@ import PostUser from '../../../components/postUser';
 //Fetch data with an api
 
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
+  const res = await fetch(`https://creative-thoughts-ashy.vercel.app/api/blog/${slug}`);
 
 
   if (!res.ok) {
