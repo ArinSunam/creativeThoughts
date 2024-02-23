@@ -6,9 +6,9 @@ const Navbar = async () => {
 
 
   return (
-    <div className=" h-[100px] w-[92vw] mmd:w-[80vw] msm:w-[60vw] flex items-center justify-between">
-      <div className="text-[30px] font-bold">Meow</div>
-      <div>
+    <div className=" h-[100px] w-[92vw] mmd:w-[80vw] msm:w-[80vw] flex items-center justify-between ">
+      <div className="text-[30px] font-bold mmd:ml-[50px] ">Meow</div>
+      <div className="">
         <Links session={session} />
       </div>
     </div>

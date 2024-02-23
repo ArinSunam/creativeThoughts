@@ -18,7 +18,7 @@ const getData = async () => {
 const BlogPage = async () => {
 
   const posts = await getData();
-  console.log('posts', posts)
+
   // const posts = await getPosts();
 
   return (
@@ -26,7 +26,7 @@ const BlogPage = async () => {
 
       {posts.map((post) => (
 
-        <div className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
+        <div key={post.id} className="w-[30%] mmd:w-[40%] msm:w-[80vw]">
           <PostCard post={post} />
 
         </div>

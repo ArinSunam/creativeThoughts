@@ -37,6 +37,20 @@ body {
   overflow-x: hidden;
 }
 
+@media (max-width: 768px) {
+  body {
+    padding-left: 20px;
+    padding-right: 50px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-left: 10px;
+    padding-right: 50px;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
